@@ -1,7 +1,8 @@
 import { ComponentType, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import { RecoilRoot } from 'recoil';
+
+import { Provider } from 'jotai';
 
 import ThemeProvider from '@/theme/Provider';
 
@@ -11,13 +12,13 @@ const root = createRoot(container);
 function render(App: ComponentType) {
   root.render(
     <StrictMode>
-      <RecoilRoot>
+      <Provider>
         <HelmetProvider>
           <ThemeProvider>
             <App />
           </ThemeProvider>
         </HelmetProvider>
-      </RecoilRoot>
+      </Provider>
     </StrictMode>,
   );
 }
